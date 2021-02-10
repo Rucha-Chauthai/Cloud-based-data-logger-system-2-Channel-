@@ -1,1 +1,1 @@
-# Cloud-based-data-logger-system-2-Channel-
+# Cloud-based-data-logger-system(2-Channel)
