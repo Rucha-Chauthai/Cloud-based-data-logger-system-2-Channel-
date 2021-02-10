@@ -1,0 +1,77 @@
+#Author:Rucha Chauthai
+<html>
+<head>
+	<meta  charset="utf-8">
+	<title>Cloud data status</title>
+  
+</head>
+<body>
+  <center>
+<h1 > cloud modification: </h1>
+    <b>PD store:</b> 
+   <form method="post" action="#" onsubmit="callSubmit()">
+   <input type="radio" id= "py" name="pd_store" value="True" required> True
+   <input type="radio"  name="pd_store" value="False" required> False<br>
+   
+   <b>Cloud sotre:</b><br>
+   
+   <input type="radio" id= "cy" name="cloud_store" value="True" required> True<br>
+   <input type="radio"   name="cloud_store" value="False" required> False<br>
+   
+   <b>store interval:</b><br>
+   <input type="text" id= "si" name="store_interval" required><br>
+   <b>File name:</b><br>
+   <input type="text" id= "fn" name="file name" required><br>
+       
+   <b>SUBMIT FORM:</b><br>
+   
+  <input type="submit" name="submit" >
+</form>
+
+
+<script type="text/javascript">
+    function callSubmit(){
+      
+      var value = document.getElementById("py").checked;
+      alert( value);
+      
+      data = document.getElementById("cy").checked;
+      alert( data);
+      
+      val = document.getElementById("si").value;
+      alert( val);
+      
+      value_fn = document.getElementById("fn").value;
+      alert( value_fn);
+      
+      
+      dbRef.ref('config/pd_store').set(value);
+      dbRef.ref('config/cloud_store').set(data);
+      dbRef.ref('config/store_interval').set(val);
+      dbRef.ref('config/file name').set(value_fn);
+    }
+  </script>
+
+
+<h1 > <br><br> </h1>
+</center>
+
+<script src="enterUrl"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "enterApiKey",
+    authDomain: "enterAuthDomain",
+    databaseURL: "enterDbUrl",
+    projectId: "enterProjectId",
+    storageBucket: "enterStorageBucket",
+    messagingSenderId: "enterMsId"
+  };
+  firebase.initializeApp(config);
+//var dbRef = firebase.database().ref().child('my-number');
+//dbRef.on('value', snap => lat.innerText = snap.val());
+	var dbRef = firebase.database();
+</script>
+
+</body>
+</html>
